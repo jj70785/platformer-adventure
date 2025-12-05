@@ -6,6 +6,7 @@ Handles loading levels from JSON and managing level objects
 import pygame
 import json
 import os
+import math
 from platforms import (Platform, MovingPlatform, FallingPlatform,
                       BouncyPlatform, OneWayPlatform, Hazard, Collectible)
 from constants import *
@@ -252,8 +253,6 @@ class Level:
             draw_rect.y -= camera_offset[1]
 
             # Animated goal
-            import math
-            import pygame
             pulse = abs(math.sin(pygame.time.get_ticks() * 0.005)) * 10
             goal_rect = draw_rect.inflate(pulse, pulse)
 
