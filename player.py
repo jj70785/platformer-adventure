@@ -200,7 +200,8 @@ class Player:
         self.handle_vertical_collisions(platforms)
 
         # Landing detection for squash/stretch
-        if not prev_on_ground and self.on_ground:
+        # Only trigger if we were actually falling (not just from gravity tick)
+        if not prev_on_ground and self.on_ground and abs(prev_y - self.rect.y) > 2:
             self.landed_this_frame = True
             self.squash_stretch = SQUASH_LAND
             if abs(self.vel_y) > 5:  # Only if significant fall
