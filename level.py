@@ -5,8 +5,8 @@ Handles loading levels from JSON and managing level objects
 
 import json
 import os
-from platform import (Platform, MovingPlatform, FallingPlatform,
-                     BouncyPlatform, OneWayPlatform, Hazard, Collectible)
+from platforms import (Platform, MovingPlatform, FallingPlatform,
+                      BouncyPlatform, OneWayPlatform, Hazard, Collectible)
 from constants import *
 
 
