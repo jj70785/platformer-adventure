@@ -178,9 +178,12 @@ class ParallaxBackground:
         num_peaks = 8
         width_per_peak = SCREEN_WIDTH * 2 // num_peaks
 
+        # Fixed mountain heights pattern
+        mountain_pattern = [150, 180, 120, 200, 160, 140, 190, 170]
+
         for i in range(num_peaks + 2):
             x = i * width_per_peak - (offset_x % (width_per_peak * num_peaks))
-            height = random.randint(100, layer['height'])
+            height = mountain_pattern[i % len(mountain_pattern)]
             points.append((x, y_pos + layer['height'] - height))
 
         # Add bottom corners
@@ -208,9 +211,12 @@ class ParallaxBackground:
         tree_spacing = 150
         tree_width = 40
 
+        # Fixed tree heights pattern
+        tree_pattern = [80, 70, 90, 75, 85, 65, 95, 80]
+
         for i in range(-2, SCREEN_WIDTH // tree_spacing + 2):
             x = i * tree_spacing - int(offset_x % (tree_spacing * 10))
-            tree_height = random.randint(60, 100)
+            tree_height = tree_pattern[i % len(tree_pattern)]
 
             # Tree trunk
             trunk_rect = pygame.Rect(x - tree_width // 4, y_pos,
