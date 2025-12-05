@@ -3,6 +3,7 @@ Level System
 Handles loading levels from JSON and managing level objects
 """
 
+import pygame
 import json
 import os
 from platforms import (Platform, MovingPlatform, FallingPlatform,
